@@ -37,6 +37,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: |
-            ghcr.io/${{ github.repository | toLowerCase() }}
-            ghcr.io/${{ github.repository | toLowerCase() }}:${{ github.sha }}
+          tags: ghcr.io/danielpanchenko04/backend
