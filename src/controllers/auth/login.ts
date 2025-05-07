@@ -6,6 +6,7 @@ import { User } from 'orm/entities/users/User';
 import { JwtPayload } from 'types/JwtPayload';
 import { createJwtToken } from 'utils/createJwtToken';
 import { CustomError } from 'utils/response/custom-error/CustomError';
+import {use} from "chai";
 
 export const login = async (req: Request, res: Response, next: NextFunction) => {
   const { email, password } = req.body;
@@ -34,7 +35,7 @@ export const login = async (req: Request, res: Response, next: NextFunction) => 
 
     try {
       const token = createJwtToken(jwtPayload);
-      res.customSuccess(200, 'Token successfully created.', `Bearer ${token}`);
+      res.customSuccess(200, 'Token successfully created.', {token: `Bareer ${token}`, userId: user.id,});
     } catch (err) {
       const customError = new CustomError(400, 'Raw', "Token can't be created", null, err);
       return next(customError);

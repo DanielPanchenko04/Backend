@@ -4,6 +4,7 @@ import { list, show, edit, destroy } from 'controllers/users';
 import { checkJwt } from 'middleware/checkJwt';
 import { checkRole } from 'middleware/checkRole';
 import { validatorEdit } from 'middleware/validation/users';
+import {createJwtToken} from "../../utils/createJwtToken";
 
 const router = Router();
 
